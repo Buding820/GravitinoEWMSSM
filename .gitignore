@@ -1,0 +1,13 @@
+# Ignore the local Folder
+External/*
+spectr/*
+
+
+# Ignore the local file 
+*.png
+*.dat
+spectr.zip 
+*.in 
+*.in.* 
+*.ipynb
+
