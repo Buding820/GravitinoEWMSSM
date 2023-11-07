@@ -1,6 +1,11 @@
 # Ignore the local Folder
 External/*
 spectr/*
+Data/ZZ/*
+Data/ZH/*
+Data/HH/*
+Data/WH/*
+Data/WZ/*
 
 
 # Ignore the local file 
