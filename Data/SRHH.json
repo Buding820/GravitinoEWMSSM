@@ -1,0 +1,84 @@
+{
+    "path": {
+        "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/HH"
+    },
+    "Signal": {
+        "Label": "S(600)",
+        "df": "TT_hh600.csv",
+        "XSect": 0.00139
+    },
+    "Background": {
+        "ttX": {
+            "Label": "$t\\bar{t}X$",
+            "dfs":[
+                {
+                    "df": "TT_tth.csv",
+                    "XSect": 0.48
+                },
+                {
+                    "df": "TT_ttz.csv",
+                    "XSect": 0.7072
+                }
+            ],
+            "color": "#FFBF00"
+        },
+        "Diboson":{
+            "Label": "${\\rm di}$-${\\rm boson}$",
+            "dfs": [
+                {
+                    "df": "TT_diboson.csv",
+                    "XSect": 0.56
+                }
+            ],
+            "color": "#FF7F50"
+        },
+        "Zjets": {
+            "Label": "$Z+{\\rm jets}$",
+            "dfs": [
+                {
+                    "df": "TT_zjj.csv",
+                    "XSect": 182.6
+                },
+                {
+                    "df": "TT_zjjj.csv",
+                    "XSect": 74.88
+                }
+            ],
+            "color": "#D582F8"
+        },
+        "bbtt": {
+            "Label": "$b\\bar{b}\\tau\\bar{\\tau}$",
+            "dfs": [
+                {
+                    "df": "TT_bbtata.csv",
+                    "XSect": 29.19
+                }
+            ],
+            "color": "#9FE2BF"
+        },
+        "ttbar": {
+            "Label": "$t\\bar{t}$",
+            "dfs": [
+                {
+                    "df": "TT_tt.csv",
+                    "XSect": 66.31
+                }
+            ],
+            "color": "#40E0D0"
+        },
+        "singleT": {
+            "Label": "${\\rm single}$-$t$",
+            "dfs": [
+                {
+                    "df": "TT_single_t_st.csv",
+                    "XSect": 84.96
+                },
+                {
+                    "df": "TT_single_t_tw.csv",
+                    "XSect": 9.28
+                }
+            ],
+            "color": "#6495ED"
+        }
+    }
+}

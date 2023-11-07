@@ -13,9 +13,10 @@ def calc(point):
     beta =  math.atan(point['TB'])
     sinBT = math.sin(beta)
     cosBT = math.cos(beta)
-    sinAP = cosBT
-    cosAP = sinBT 
+    sinAP = math.sin(point['Alpha'])
+    cosAP = math.cos(point['Alpha'])
     Gamma0 = 1.12e-11 
+
     def kappa_Gamma(ii):
         Ni1 = point["N{}1".format(ii)]
         Ni2 = point["N{}2".format(ii)]
@@ -64,7 +65,6 @@ def calc(point):
     }
     return res 
 
-
 def calculate(row):
     # print(row)
     point = {
@@ -91,12 +91,12 @@ def calculate(row):
             inp = inp.replace(">>>TB<<<", "{}".format(float(point['TB']))) 
             f2.write(inp)
 
-    os.system("rm {}".format(opf))
+    # os.system("rm {}".format(opf))
     os.system("rm {}".format(op1))
     os.system("rm {}".format(op2))
 
     os.chdir(shp)
-    os.system("./run")
+    os.system("./run > log")
     os.system("mv {} {}".format(opf, os.path.join(pwd, "spectr/{}.dat".format(point['ID']))))
     spe = pyslha.read(os.path.join(pwd, "spectr/{}.dat".format(point['ID'])))
 
@@ -135,9 +135,18 @@ def calculate(row):
         "WC1":  spe.decays[1000024].totalwidth,
         "WN3":  spe.decays[1000025].totalwidth,
         "WN4":  spe.decays[1000035].totalwidth,
-        "WC2":  spe.decays[1000037].totalwidth
+        "WC2":  spe.decays[1000037].totalwidth,
+        "Alpha":    spe.blocks['ALPHA'][None]
         })
     point.update(calc(point))
+
+    spe = pyslha.read(op2)
+    point.update({
+        "SUFT01":   spe.blocks["SU_FINETUNE"][1],
+        "SUFT02":   spe.blocks["SU_FINETUNE"][2],
+        "SUFT03":   spe.blocks["SU_FINETUNE"][3],
+        "SUFT04":   spe.blocks["SU_FINETUNE"][4]
+    })
     # print(pd.Series(point))
     return point
     
@@ -150,13 +159,16 @@ if __name__ == "__main__":
     sams = []
     for index, row in pdata.iterrows():
         if index % 100 == 0:
-            print("Calculating the mass spectrum of ID -> \n\t {} \n".format(index))
+            print("Calculating the mass spectrum of ID ->\t{} ".format(index))
         info = calculate(dict(row))
+        # print(pd.Series(info))
         sams.append(info)
-        # break
+        # # break
+        # if index == 100:
+        #     break
         
     df = pd.DataFrame(sams)
     print(df.shape)
     os.chdir(pwd)
-    df.to_csv("tot_data.csv")
+    df.to_csv("tot_data_1107.csv")
  

@@ -1,0 +1,48 @@
+{
+    "path": {
+        "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/ZZ"
+    },
+    "Signal": {
+        "Label": "S(600)",
+        "df": "zz600.csv",
+        "XSect": 8.32614E-05
+    },
+    "Background": {
+        "Higgs": {
+            "Label": "${\rm Higgs}$",
+            "dfs": [
+                {
+                    "df": "bkg_ggh.csv",
+                    "XSect": 0.0004472
+                }
+            ]
+        },
+        "ZZ":{
+            "Label": "${ZZ}$",
+            "dfs": [
+                {
+                    "df": "bkg_llll.csv",
+                    "XSect": 0.02643
+                }
+            ]
+        },
+        "ttZ":{
+            "Label": "$t\bar{t}Z$",
+            "dfs": [
+                {
+                    "df": "bkg_ttz_50W.csv",
+                    "XSect": 0.008099
+                }
+            ]
+        },
+        "VVZ":{
+            "Label": "$VVZ$",
+            "dfs": [
+                {
+                    "df": "bkg_vvz.csv",
+                    "XSect": 0.1349
+                }
+            ]
+        }
+    }
+}

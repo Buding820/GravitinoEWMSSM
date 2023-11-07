@@ -97,7 +97,7 @@ axc = fig.add_axes([0.851, 0.15, 0.02, 0.80])
 # ax1.plot(np.linspace(0, 1000, 100), np.exp(XSect_SMa(np.linspace(0, 1000, 100))), '-', c='b')
 
 # ax1.set_yscale('log')
-df = pd.read_csv("tot_data.csv", index_col="ID")
+df = pd.read_csv("tot_data_1107.csv", index_col="ID")
 data2 = pd.read_csv("param.csv", index_col="index")
 df = df.sort_values(['LogL'])
 
@@ -203,7 +203,7 @@ dz5 = dz5.sort_values(['LogL'])
 # ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
 # ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
 
-# sc = ax1.scatter(df['M1'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# # sc = ax1.scatter(df['M1'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
 # ax1.set_xlim(-1000., 1000)
 # ax1.set_ylim(-1000., 1000)
@@ -243,30 +243,31 @@ dz5 = dz5.sort_values(['LogL'])
 # axc.yaxis.set_minor_locator(AutoMinorLocator())
 # axc.set_ylabel(r"$\ln\mathcal{L}^{\rm searches}$", fontsize=30)
 
-# plt.savefig("m1-mu.png", dpi=150)
+
+# plt.savefig("m1-mu-HLLHC.png", dpi=150)
 
 # =============== Plot M2-Mu plane ================ # 
 
-# ax1.scatter(dc2['M2'], dc2['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dc3['M2'], dc3['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dc4['M2'], dc4['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dd2['M2'], dd2['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dd3['M2'], dd3['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dd4['M2'], dd4['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dg2['M2'], dg2['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dg3['M2'], dg3['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(dg4['M2'], dg4['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(de2['M2'], de2['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(de3['M2'], de3['Mu'] , marker='.', s=1.0, c="lightgray")
-# ax1.scatter(de4['M2'], de4['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dc2['M2'], dc2['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dc3['M2'], dc3['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dc4['M2'], dc4['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dd2['M2'], dd2['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dd3['M2'], dd3['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dd4['M2'], dd4['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dg2['M2'], dg2['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dg3['M2'], dg3['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(dg4['M2'], dg4['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(de2['M2'], de2['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(de3['M2'], de3['Mu'] , marker='.', s=1.0, c="lightgray")
+ax1.scatter(de4['M2'], de4['Mu'] , marker='.', s=1.0, c="lightgray")
 
-# sc = ax1.scatter(dz1['M2'], dz1['Mu'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-# ax1.scatter(dz2['M2'], dz2['Mu'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-# ax1.scatter(dz3['M2'], dz3['Mu'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-# ax1.scatter(dz4['M2'], dz4['Mu'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-# ax1.scatter(dz5['M2'], dz5['Mu'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+sc = ax1.scatter(dz1['M2'], dz1['Mu'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+ax1.scatter(dz2['M2'], dz2['Mu'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+ax1.scatter(dz3['M2'], dz3['Mu'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+ax1.scatter(dz4['M2'], dz4['Mu'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+ax1.scatter(dz5['M2'], dz5['Mu'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
-sc = ax1.scatter(df['M2'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# sc = ax1.scatter(df['M2'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
 ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
 ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
@@ -309,8 +310,8 @@ plt.colorbar(sc, axc)
 axc.yaxis.set_minor_locator(AutoMinorLocator())
 axc.set_ylabel(r"$\ln\mathcal{L}^{\rm searches}$", fontsize=30)
 
-# plt.savefig("m2-mu-HLLHC.png", dpi=150)
-plt.savefig("m2-mu.png", dpi=150)
+plt.savefig("m2-mu-HLLHC.png", dpi=150)
+# plt.savefig("m2-mu.png", dpi=150)
 
 
 

@@ -1,0 +1,74 @@
+{
+    "path": {
+        "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/WH"
+    },
+    "Signal": {
+        "Label": "S(600)",
+        "df": "wh600.csv",
+        "XSect": 0.001479762
+    },
+    "Background": {
+        "ttbar": {
+            "Label": "t\bar{t}$",
+            "dfs": [
+                {
+                    "df": "bkg_tt.csv",
+                    "XSect": 598.3
+                }
+            ]
+        },
+        "ttX": {
+            "Label": "$t\bar{t}X$",
+            "dfs":[
+                {
+                    "df": "bkg_tth.csv",
+                    "XSect": 0.48
+                },
+                {
+                    "df": "bkg_ttw.csv",
+                    "XSect": 0.4002
+                },
+                {
+                    "df": "bkg_ttz.csv",
+                    "XSect": 0.7072
+                }
+            ]
+        },
+        "singleT": {
+            "Label": "${\rm single-}t$",
+            "dfs": [
+                {
+                    "df": "bkg_tw.csv",
+                    "XSect": 83.6
+                }
+            ]
+        },
+        "Wbb": {
+            "Label": "$Wb\bar{b}$",
+            "dfs": [
+                {
+                    "df": "bkg_wbb.csv",
+                    "XSect": 131.8
+                }
+            ]
+        },
+        "Wh":{
+            "Label": "$Wh$",
+            "dfs": [
+                {
+                    "df": "bkg_wh.csv",
+                    "XSect": 0.3289
+                }
+            ]
+        },
+        "WZ": {
+            "Label": "$WZ$",
+            "dfs": [
+                {
+                    "df": "bkg_zw.csv",
+                    "XSect": 1.308
+                }
+            ]
+        }
+    }
+}

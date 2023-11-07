@@ -1,0 +1,94 @@
+{
+    "path": {
+        "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/ZH"
+    },
+    "Signal": {
+        "Label": "S(600)",
+        "df": "zh600.csv",
+        "XSect": 0.0003547
+    },
+    "Background": {
+        "bbll": {
+            "Label": "$bb\\ell\\ell$",
+            "dfs": [
+                {
+                    "df": "bkg_bbll_200W.csv",
+                    "XSect": 87.76
+                }
+            ],
+            "color": "#FFBF00"
+        },
+        "Diboson":{
+            "Label": "${\rm di-boson}$",
+            "dfs": [
+                {
+                    "df": "bkg_diboson.csv",
+                    "XSect": 1.614
+                }
+            ],
+            "color": "#FF7F50"
+        },
+        "singleT": {
+            "Label": "${\rm single-}t$",
+            "dfs": [
+                {
+                    "df": "bkg_single_t_st.csv",
+                    "XSect": 84.96
+                },
+                {
+                    "df": "bkg_single_t_tw.csv",
+                    "XSect": 9.28
+                }
+            ],
+            "color": "#6495ED"
+        },
+        "ttbar": {
+            "Label": "t\bar{t}$",
+            "dfs": [
+                {
+                    "df": "bkg_tt.csv",
+                    "XSect": 66.31
+                }
+            ]
+        },
+        "ttX": {
+            "Label": "$t\bar{t}X$",
+            "dfs":[
+                {
+                    "df": "bkg_tth.csv",
+                    "XSect": 0.48
+                },
+                {
+                    "df": "bkg_ttw.csv",
+                    "XSect": 0.4002
+                },
+                {
+                    "df": "bkg_ttz.csv",
+                    "XSect": 0.7072
+                }
+            ]
+        },
+        "Vh": {
+            "Label": "$Vh$",
+            "dfs": [
+                {
+                    "df": "bkg_vh.csv",
+                    "XSect": 0.3821
+                }
+            ]
+        },
+        "Zjets": {
+            "Label": "$Z+{\rm jets}$",
+            "dfs": [
+                {
+                    "df": "bkg_zcc.csv",
+                    "XSect": 8.307
+                },
+                {
+                    "df": "bkg_zcj.csv",
+                    "XSect": 41.8
+                }
+            ]
+        }
+    }
+}
