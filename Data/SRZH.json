@@ -8,17 +8,25 @@
         "XSect": 0.0003547
     },
     "Background": {
-        "bbll": {
-            "Label": "$bb\\ell\\ell$",
+        "ttX": {
+            "Label": "$t\bar{t}X$",
             "dfs": [
                 {
-                    "df": "bkg_bbll_200W.csv",
-                    "XSect": 87.76
+                    "df": "bkg_tth.csv",
+                    "XSect": 0.48
+                },
+                {
+                    "df": "bkg_ttw.csv",
+                    "XSect": 0.4002
+                },
+                {
+                    "df": "bkg_ttz.csv",
+                    "XSect": 0.7072
                 }
             ],
             "color": "#FFBF00"
         },
-        "Diboson":{
+        "Diboson": {
             "Label": "${\rm di-boson}$",
             "dfs": [
                 {
@@ -27,6 +35,40 @@
                 }
             ],
             "color": "#FF7F50"
+        },
+        "Zjets": {
+            "Label": "$Z+{\rm jets}$",
+            "dfs": [
+                {
+                    "df": "bkg_zcc.csv",
+                    "XSect": 8.307
+                },
+                {
+                    "df": "bkg_zcj.csv",
+                    "XSect": 41.8
+                }
+            ],
+            "color": "#D582F8"
+        },
+        "bbll": {
+            "Label": "$bb\\ell\\ell$",
+            "dfs": [
+                {
+                    "df": "bkg_bbll_200W.csv",
+                    "XSect": 87.76
+                }
+            ],
+            "color": "#9FE2BF"
+        },
+        "ttbar": {
+            "Label": "t\bar{t}$",
+            "dfs": [
+                {
+                    "df": "bkg_tt.csv",
+                    "XSect": 66.31
+                }
+            ],
+            "color": "#40E0D0"
         },
         "singleT": {
             "Label": "${\rm single-}t$",
@@ -42,32 +84,6 @@
             ],
             "color": "#6495ED"
         },
-        "ttbar": {
-            "Label": "t\bar{t}$",
-            "dfs": [
-                {
-                    "df": "bkg_tt.csv",
-                    "XSect": 66.31
-                }
-            ]
-        },
-        "ttX": {
-            "Label": "$t\bar{t}X$",
-            "dfs":[
-                {
-                    "df": "bkg_tth.csv",
-                    "XSect": 0.48
-                },
-                {
-                    "df": "bkg_ttw.csv",
-                    "XSect": 0.4002
-                },
-                {
-                    "df": "bkg_ttz.csv",
-                    "XSect": 0.7072
-                }
-            ]
-        },
         "Vh": {
             "Label": "$Vh$",
             "dfs": [
@@ -75,20 +91,8 @@
                     "df": "bkg_vh.csv",
                     "XSect": 0.3821
                 }
-            ]
-        },
-        "Zjets": {
-            "Label": "$Z+{\rm jets}$",
-            "dfs": [
-                {
-                    "df": "bkg_zcc.csv",
-                    "XSect": 8.307
-                },
-                {
-                    "df": "bkg_zcj.csv",
-                    "XSect": 41.8
-                }
-            ]
+            ],
+            "color": "#FB86FC"
         }
     }
 }
