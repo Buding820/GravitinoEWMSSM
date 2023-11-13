@@ -30,6 +30,8 @@ config = {
 rcParams.update(config)
 plt.rcParams['axes.formatter.min_exponent'] = 2
 
+df_fit = pd.read_csv("Data/SR-limit.csv")
+
 def S95(bkg):
     return 2.0 * (math.sqrt(bkg + 1) + 1.0)
 
@@ -48,6 +50,15 @@ N_SM = {
     "SR-WH-Low":    295821.0,
     "SR-WZ":        480.2
 }
+s95 = {
+    "SR-HH":        1719.11,
+    "SR-ZH":        419.16,
+    "SR-ZZ":        23.3604,
+    "SR-WH-High":   1052.63,
+    "SR-WH-Low":    55205.0,
+    "SR-WZ":        100.446
+}
+
 
 BR = {
     "SR-HH":        2.0 * brH2bb * brH2tt,
@@ -115,10 +126,10 @@ dc1['S_HH']         = np.exp(XSect_SMa(np.abs(dc1['mN1']))) * Lumi * dc1['BRN1Hg
 dc1['S_ZH']         = np.exp(XSect_SMa(np.abs(dc1['mN1']))) * Lumi * dc1['BRN1Hg'] * dc1['BRN1Zg'] * BR['SR-ZH'] * eff_ZH(np.abs(dc1['mN1']))
 dc1['S_ZZ']         = np.exp(XSect_SMa(np.abs(dc1['mN1']))) * Lumi * dc1['BRN1Zg'] * dc1['BRN1Zg'] * BR['SR-ZZ'] * eff_ZZ(np.abs(dc1['mN1']))
 
-dc2     = dc1[dc1['S_HH'] > S95(N_SM['SR-HH'])]
-dc3     = dc1[dc1['S_ZH'] > S95(N_SM['SR-ZH'])]
-dc4     = dc1[dc1['S_ZZ'] > S95(N_SM['SR-ZZ'])]
-dz1     = dc1[(dc1['S_HH'] <= S95(N_SM['SR-HH'])) & (dc1['S_ZH'] <= S95(N_SM['SR-ZH'])) & (dc1['S_ZZ'] <= S95(N_SM['SR-ZZ'])) ]
+dc2     = dc1[dc1['S_HH'] > s95['SR-HH']]
+dc3     = dc1[dc1['S_ZH'] > s95['SR-ZH']]
+dc4     = dc1[dc1['S_ZZ'] > s95['SR-ZZ']]
+dz1     = dc1[(dc1['S_HH'] <= s95['SR-HH']) & (dc1['S_ZH'] <= s95['SR-ZH']) & (dc1['S_ZZ'] <= s95['SR-ZZ']) ]
 
 # Case SM-B
 dd1 = df[(df["N13"] ** 2 + df["N14"] ** 2 > df["N11"] ** 2) & (df["N13"] ** 2 + df["N14"] ** 2 > df["N12"] ** 2) & (df['WN2'] <= df['WN2Gamma'] + df['WN2H'] + df['WN2Z']) ]
@@ -131,10 +142,10 @@ dd1['S_WH-High']    = np.exp(XSect_SMb(np.abs(dd1['mN1']))) * Lumi * dd1['BRN1Hg
 dd1['S_WH-Low']     = np.exp(XSect_SMb(np.abs(dd1['mN1']))) * Lumi * dd1['BRN1Hg'] * BR['SR-WH-Low']    * eff_WHL(np.abs(dd1['mN1']))
 dd1['S_WZ']         = np.exp(XSect_SMb(np.abs(dd1['mN1']))) * Lumi * dd1['BRN1Zg'] * BR['SR-WZ']        * eff_WZ(np.abs(dd1['mN1']))
 
-dd2     = dd1[dd1['S_WH-High'] > S95(N_SM['SR-ZZ'])]
-dd3     = dd1[dd1['S_WH-Low'] > S95(N_SM['SR-ZZ'])]
-dd4     = dd1[dd1['S_WZ'] > S95(N_SM['SR-ZZ'])]
-dz2     = dd1[(dd1['S_WH-High'] <= S95(N_SM['SR-ZZ'])) & (dd1['S_WH-Low'] <= S95(N_SM['SR-ZZ'])) & (dd1['S_WZ'] <= S95(N_SM['SR-ZZ'])) ]
+dd2     = dd1[dd1['S_WH-High'] > s95['SR-ZZ']]
+dd3     = dd1[dd1['S_WH-Low'] > s95['SR-ZZ']]
+dd4     = dd1[dd1['S_WZ'] > s95['SR-ZZ']]
+dz2     = dd1[(dd1['S_WH-High'] <= s95['SR-ZZ']) & (dd1['S_WH-Low'] <= s95['SR-ZZ']) & (dd1['S_WZ'] <= s95['SR-ZZ']) ]
 
 # sc = ax1.scatter(dz2['M1'], dz2['Mu'] , marker='.', s=1.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8, zorder=100)
 
@@ -151,10 +162,10 @@ de1['S_HH']         = 3.5 * np.exp(XSect_SMb(np.abs(de1['mN1']))) * Lumi * de1['
 de1['S_ZH']         = 3.5 * np.exp(XSect_SMb(np.abs(de1['mN1']))) * Lumi * de1['BRN1Hg'] * de1['BRN1Zg'] * BR['SR-ZH'] * eff_ZH(np.abs(de1['mN1']))
 de1['S_ZZ']         = 3.5 * np.exp(XSect_SMb(np.abs(de1['mN1']))) * Lumi * de1['BRN1Zg'] * de1['BRN1Zg'] * BR['SR-ZZ'] * eff_ZZ(np.abs(de1['mN1']))
 
-de2     = de1[de1['S_HH'] > S95(N_SM['SR-HH'])]
-de3     = de1[de1['S_ZH'] > S95(N_SM['SR-ZH'])]
-de4     = de1[de1['S_ZZ'] > S95(N_SM['SR-ZZ'])]
-dz3     = de1[(de1['S_HH'] <= S95(N_SM['SR-HH'])) & (de1['S_ZH'] <= S95(N_SM['SR-ZH'])) & (de1['S_ZZ'] <= S95(N_SM['SR-ZZ'])) ]
+de2     = de1[de1['S_HH'] > s95['SR-HH']]
+de3     = de1[de1['S_ZH'] > s95['SR-ZH']]
+de4     = de1[de1['S_ZZ'] > s95['SR-ZZ']]
+dz3     = de1[(de1['S_HH'] <= s95['SR-HH']) & (de1['S_ZH'] <= s95['SR-ZH']) & (de1['S_ZZ'] <= s95['SR-ZZ']) ]
 
 
 
@@ -169,10 +180,10 @@ dg1['S_WH-High']    = 3.5 * np.exp(XSect_SMb(np.abs(dg1['mN1']))) * Lumi * dg1['
 dg1['S_WH-Low']     = 3.5 * np.exp(XSect_SMb(np.abs(dg1['mN1']))) * Lumi * dg1['BRN1Hg'] * BR['SR-WH-Low']    * eff_WHL(np.abs(dg1['mN1']))
 dg1['S_WZ']         = 3.5 * np.exp(XSect_SMb(np.abs(dg1['mN1']))) * Lumi * dg1['BRN1Zg'] * BR['SR-WZ']        * eff_WZ(np.abs(dg1['mN1']))
 
-dg2     = dg1[dg1['S_WH-High'] > S95(N_SM['SR-ZZ'])]
-dg3     = dg1[dg1['S_WH-Low'] > S95(N_SM['SR-ZZ'])]
-dg4     = dg1[dg1['S_WZ'] > S95(N_SM['SR-ZZ'])]
-dz4     = dg1[(dg1['S_WH-High'] <= S95(N_SM['SR-ZZ'])) & (dg1['S_WH-Low'] <= S95(N_SM['SR-ZZ'])) & (dg1['S_WZ'] <= S95(N_SM['SR-ZZ'])) ]
+dg2     = dg1[dg1['S_WH-High'] > s95['SR-ZZ']]
+dg3     = dg1[dg1['S_WH-Low'] > s95['SR-ZZ']]
+dg4     = dg1[dg1['S_WZ'] > s95['SR-ZZ']]
+dz4     = dg1[(dg1['S_WH-High'] <= s95['SR-ZZ']) & (dg1['S_WH-Low'] <= s95['SR-ZZ']) & (dg1['S_WZ'] <= s95['SR-ZZ']) ]
 
 # Bino-Dominated Case 
 # Assumed no limits at All 
@@ -203,7 +214,7 @@ dz5 = dz5.sort_values(['LogL'])
 # ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
 # ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
 
-# # sc = ax1.scatter(df['M1'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# sc = ax1.scatter(df['M1'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
 # ax1.set_xlim(-1000., 1000)
 # ax1.set_ylim(-1000., 1000)
@@ -248,74 +259,116 @@ dz5 = dz5.sort_values(['LogL'])
 
 # =============== Plot M2-Mu plane ================ # 
 
-ax1.scatter(dc2['M2'], dc2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dc3['M2'], dc3['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dc4['M2'], dc4['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dd2['M2'], dd2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dd3['M2'], dd3['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dd4['M2'], dd4['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dg2['M2'], dg2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dg3['M2'], dg3['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dg4['M2'], dg4['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(de2['M2'], de2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(de3['M2'], de3['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(de4['M2'], de4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc2['M2'], dc2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc3['M2'], dc3['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc4['M2'], dc4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd2['M2'], dd2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd3['M2'], dd3['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd4['M2'], dd4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg2['M2'], dg2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg3['M2'], dg3['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg4['M2'], dg4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de2['M2'], de2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de3['M2'], de3['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de4['M2'], de4['Mu'] , marker='.', s=1.0, c="lightgray")
 
-sc = ax1.scatter(dz1['M2'], dz1['Mu'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz2['M2'], dz2['Mu'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz3['M2'], dz3['Mu'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz4['M2'], dz4['Mu'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz5['M2'], dz5['Mu'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# sc = ax1.scatter(dz1['M2'], dz1['Mu'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz2['M2'], dz2['Mu'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz3['M2'], dz3['Mu'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz4['M2'], dz4['Mu'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz5['M2'], dz5['Mu'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
-# sc = ax1.scatter(df['M2'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# # sc = ax1.scatter(df['M2'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
-ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
-ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
+# ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
+# ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
 
-ax1.set_xlim(0., 1000)
-ax1.set_ylim(-1000., 1000)
-ax1.yaxis.set_minor_locator(AutoMinorLocator())
-ax1.xaxis.set_minor_locator(AutoMinorLocator())
+# ax1.set_xlim(0., 1000)
+# ax1.set_ylim(-1000., 1000)
+# ax1.yaxis.set_minor_locator(AutoMinorLocator())
+# ax1.xaxis.set_minor_locator(AutoMinorLocator())
 
 
-ax1.tick_params(
-    which='both',
-    direction="in",
-    labelsize=18,
-    left=True,
-    right=True,
-    bottom=True,
-    top=True
-)
-ax1.tick_params(which="major", length=10, width=1.2)
-ax1.tick_params(which="minor", length=4, width=1.2)
-ax1.set_xticks(np.linspace(0, 1000, 5))
-ax1.set_yticks(np.linspace(-1000, 1000, 5))
+# ax1.tick_params(
+#     which='both',
+#     direction="in",
+#     labelsize=18,
+#     left=True,
+#     right=True,
+#     bottom=True,
+#     top=True
+# )
+# ax1.tick_params(which="major", length=10, width=1.2)
+# ax1.tick_params(which="minor", length=4, width=1.2)
+# ax1.set_xticks(np.linspace(0, 1000, 5))
+# ax1.set_yticks(np.linspace(-1000, 1000, 5))
 
-axc.tick_params(
-    which='both',
-    direction="in",
-    labelsize=18,
-    left=False,
-    right=True,
-    bottom=False,
-    top=False
-)
-axc.tick_params(which="major", length=7, width=1.2)
-axc.tick_params(which="minor", length=4, width=1.2)
-ax1.set_xlabel("$M_{2}$ [GeV]", fontsize=30, loc="right")
-ax1.set_ylabel("$\mu$ [GeV]", fontsize=30, loc="top")
+# axc.tick_params(
+#     which='both',
+#     direction="in",
+#     labelsize=18,
+#     left=False,
+#     right=True,
+#     bottom=False,
+#     top=False
+# )
+# axc.tick_params(which="major", length=7, width=1.2)
+# axc.tick_params(which="minor", length=4, width=1.2)
+# ax1.set_xlabel("$M_{2}$ [GeV]", fontsize=30, loc="right")
+# ax1.set_ylabel("$\mu$ [GeV]", fontsize=30, loc="top")
 
-plt.colorbar(sc, axc)
-axc.yaxis.set_minor_locator(AutoMinorLocator())
-axc.set_ylabel(r"$\ln\mathcal{L}^{\rm searches}$", fontsize=30)
+# plt.colorbar(sc, axc)
+# axc.yaxis.set_minor_locator(AutoMinorLocator())
+# axc.set_ylabel(r"$\ln\mathcal{L}^{\rm searches}$", fontsize=30)
 
-plt.savefig("m2-mu-HLLHC.png", dpi=150)
+# plt.savefig("m2-mu-HLLHC.png", dpi=150)
 # plt.savefig("m2-mu.png", dpi=150)
 
+# =================== Plot mN1-Decay Width ====================
+
+# ax1.set_xlim(0., 1000)
+# # ax1.set_ylim(1.0e-21, 1.0e-14)
+# axc.set_yscale("log")
+
+# ax1.yaxis.set_minor_locator(AutoMinorLocator())
+# ax1.xaxis.set_minor_locator(AutoMinorLocator())
 
 
-# plt.show()
+# ax1.tick_params(
+#     which='both',
+#     direction="in",
+#     labelsize=18,
+#     left=True,
+#     right=True,
+#     bottom=True,
+#     top=True
+# )
+# ax1.tick_params(which="major", length=10, width=1.2)
+# ax1.tick_params(which="minor", length=4, width=1.2)
+# ax1.set_xticks(np.linspace(0, 1000, 5))
+# # ax1.set_yticks(np.linspace(-1000, 1000, 5))
+
+# axc.tick_params(
+#     which='both',
+#     direction="in",
+#     labelsize=18,
+#     left=False,
+#     right=True,
+#     bottom=False,
+#     top=False
+# )
+# axc.tick_params(which="major", length=7, width=1.2)
+# axc.tick_params(which="minor", length=4, width=1.2)
+# ax1.set_xlabel(r"$m_{\tilde{\chi}_1^0}$ [GeV]", fontsize=30, loc="right")
+# ax1.set_ylabel(r"$\Gamma_{\tilde{\chi}_2^0}$ [GeV]", fontsize=30, loc="top")
+
+# sc = ax1.scatter(np.abs(df['mN1']), df['WN2'] , marker='.', s=8.0, c=np.abs(df['mN2']) - np.abs(df['mN1']), cmap="tab20c", norm=matplotlib.colors.LogNorm(vmin=1.e-4, vmax=10))
+# plt.colorbar(sc, axc)
+# axc.set_ylabel(r"$m_{\tilde{\chi}_2^0} - m_{\tilde{\chi}_1^0}$ [GeV]", fontsize=30, loc="top")
+# ax1.set_yscale('log')
+
+plt.show()
+# plt.savefig("LLP.png", dpi=300)
 
 
 
