@@ -35,7 +35,6 @@ pwd = os.path.abspath(os.path.dirname(__file__))
 def plot(cs, info):
     Lumi = 3000. 
     for var, inf in info.items():
-        plt.cla()
         fig = plt.figure(figsize=(10, 8))
         ax  = fig.add_axes([0.15, 0.16, 0.81, 0.81])
 
@@ -59,6 +58,7 @@ def plot(cs, info):
 
             ax.plot(xx, yy, "-", linewidth=1.4, label=r"{}".format(bkg['Label']), c=bkg['color'])
 
+        print("Background Loaded")
         ds = pd.read_csv(os.path.join(cs['path']['pwd'], cs['Signal']['df']))
         ds['wgh'] = 1.0 / ds.shape[0]
 
@@ -87,10 +87,12 @@ def plot(cs, info):
         ax.tick_params(which="minor", length=4, width=1.2)
 
         # ax.set_yscale("logit")
-        if inf['legond']:
-            ax.legend(ncols=2, fontsize=24)
-        # plt.show()
+        if inf['legend']:
+            ax.legend(fontsize=24, ncols=2)
         plt.savefig("ZH_{}.png".format(var), dpi=150)
+        # plt.show()
+        # fig.clf()
+
 
 if __name__ == "__main__":
     # with open(os.path.join(pwd, "Data/SRHH.json")) as f1:
@@ -131,7 +133,8 @@ if __name__ == "__main__":
     #     } 
     #     plot(ds, info)
 
-    with open(os.path.join(pwd, "Data/SRHH.json")) as f1:
+        
+    with open(os.path.join(pwd, "Data/SRZH.json")) as f1:
         ds = json.loads(f1.read())
         info = {
             "ET_miss":{
@@ -140,23 +143,23 @@ if __name__ == "__main__":
                 "xrgs": (0., 500),
                 "yrgs": (0., 0.3),
                 "nbin": 50,
-                "legond":   False
+                "legend":   False
             },
-            "m_bb":{
-                "xlabel":   "m_{bb}~[{\\rm GeV}]",
+            "m_ll":{
+                "xlabel":   "m_{\ell\ell}~[{\\rm GeV}]",
                 "ylabel":   "{\\rm Events~fraction}",
                 "xrgs": (0., 500),
                 "yrgs": (0., 0.25),
                 "nbin": 50,
-                "legond":   True
+                "legend":   True
             },
-            "deltaR_bb":{
-                "xlabel":   "\Delta R_{bb}",
+            "deltaR_ll":{
+                "xlabel":   "\Delta R_{\ell\ell}",
                 "ylabel":   "{\\rm Events~fraction}",
                 "xrgs": (0.4, 5.),
                 "yrgs": (0., 0.15),
                 "nbin": 50,
-                "legond":   False
+                "legend":   False
             },
             "mT2_min":{
                 "xlabel":   "m_{\\rm T2}^{\\rm min}~[{\\rm GeV}]",
@@ -164,7 +167,7 @@ if __name__ == "__main__":
                 "xrgs": (0., 800),
                 "yrgs": (0., 0.15),
                 "nbin": 50,
-                "legond":   False
+                "legend":   False
             }
         } 
         plot(ds, info)

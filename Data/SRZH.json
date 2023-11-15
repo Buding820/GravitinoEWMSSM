@@ -1,6 +1,6 @@
 {
     "path": {
-        "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/ZH"
+        "pwd": "/Users/zhupengxuan/Buding/GEWMSSM/Data/ZH"
     },
     "Signal": {
         "Label": "S(600)",
@@ -9,7 +9,7 @@
     },
     "Background": {
         "ttX": {
-            "Label": "$t\bar{t}X$",
+            "Label": "$t\\bar{t}X$",
             "dfs": [
                 {
                     "df": "bkg_tth.csv",
@@ -27,7 +27,7 @@
             "color": "#FFBF00"
         },
         "Diboson": {
-            "Label": "${\rm di-boson}$",
+            "Label": "${\\rm di}$-${\\rm boson}$",
             "dfs": [
                 {
                     "df": "bkg_diboson.csv",
@@ -37,7 +37,7 @@
             "color": "#FF7F50"
         },
         "Zjets": {
-            "Label": "$Z+{\rm jets}$",
+            "Label": "$Z+{\\rm jets}$",
             "dfs": [
                 {
                     "df": "bkg_zcc.csv",
@@ -61,7 +61,7 @@
             "color": "#9FE2BF"
         },
         "ttbar": {
-            "Label": "t\bar{t}$",
+            "Label": "$t\\bar{t}$",
             "dfs": [
                 {
                     "df": "bkg_tt.csv",
@@ -71,7 +71,7 @@
             "color": "#40E0D0"
         },
         "singleT": {
-            "Label": "${\rm single-}t$",
+            "Label": "${\\rm single-}t$",
             "dfs": [
                 {
                     "df": "bkg_single_t_st.csv",
