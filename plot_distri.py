@@ -89,7 +89,7 @@ def plot(cs, info):
         # ax.set_yscale("logit")
         if inf['legend']:
             ax.legend(fontsize=30, ncols=2)
-        plt.savefig("ZH_{}.png".format(var), dpi=150)
+        plt.savefig("ZZ_{}.png".format(var), dpi=150)
         # plt.show()
         # fig.clf()
 
