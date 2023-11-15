@@ -89,85 +89,200 @@ def plot(cs, info):
         # ax.set_yscale("logit")
         if inf['legend']:
             ax.legend(fontsize=24, ncols=2)
-        plt.savefig("ZH_{}.png".format(var), dpi=150)
+        plt.savefig("WZ_{}.png".format(var), dpi=150)
         # plt.show()
         # fig.clf()
 
 
 if __name__ == "__main__":
-    # with open(os.path.join(pwd, "Data/SRHH.json")) as f1:
-    #     ds = json.loads(f1.read())
-    #     info = {
-    #         "ET_miss":{
-    #             "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
-    #             "ylabel":   "{\\rm Events~fraction}",
-    #             "xrgs": (0., 500),
-    #             "yrgs": (0., 0.3),
-    #             "nbin": 50,
-    #             "legond":   False
-    #         },
-    #         "m_bb":{
-    #             "xlabel":   "m_{bb}~[{\\rm GeV}]",
-    #             "ylabel":   "{\\rm Events~fraction}",
-    #             "xrgs": (0., 500),
-    #             "yrgs": (0., 0.25),
-    #             "nbin": 50,
-    #             "legond":   True
-    #         },
-    #         "deltaR_bb":{
-    #             "xlabel":   "\Delta R_{bb}",
-    #             "ylabel":   "{\\rm Events~fraction}",
-    #             "xrgs": (0.4, 5.),
-    #             "yrgs": (0., 0.15),
-    #             "nbin": 50,
-    #             "legond":   False
-    #         },
-    #         "mT2_min":{
-    #             "xlabel":   "m_{\\rm T2}^{\\rm min}~[{\\rm GeV}]",
-    #             "ylabel":   "{\\rm Events~fraction}",
-    #             "xrgs": (0., 800),
-    #             "yrgs": (0., 0.15),
-    #             "nbin": 50,
-    #             "legond":   False
-    #         }
-    #     } 
-    #     plot(ds, info)
+    switch_HH = False
+    switch_ZH = False
+    switch_ZZ = False
+    switch_WH = False
+    switch_WZ = True
+    if switch_HH:
+        with open(os.path.join(pwd, "Data/SRHH.json")) as f1:
+            ds = json.loads(f1.read())
+            info = {
+                "ET_miss":{
+                    "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 500),
+                    "yrgs": (0., 0.3),
+                    "nbin": 50,
+                    "legond":   False
+                },
+                "m_bb":{
+                    "xlabel":   "m_{bb}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 500),
+                    "yrgs": (0., 0.25),
+                    "nbin": 50,
+                    "legond":   True
+                },
+                "deltaR_bb":{
+                    "xlabel":   "\Delta R_{bb}",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0.4, 5.),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legond":   False
+                },
+                "mT2_min":{
+                    "xlabel":   "m_{\\rm T2}^{\\rm min}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 800),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legond":   False
+                }
+            } 
+            plot(ds, info)
 
-        
-    with open(os.path.join(pwd, "Data/SRZH.json")) as f1:
-        ds = json.loads(f1.read())
-        info = {
-            "ET_miss":{
-                "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
-                "ylabel":   "{\\rm Events~fraction}",
-                "xrgs": (0., 500),
-                "yrgs": (0., 0.3),
-                "nbin": 50,
-                "legend":   False
-            },
-            "m_ll":{
-                "xlabel":   "m_{\ell\ell}~[{\\rm GeV}]",
-                "ylabel":   "{\\rm Events~fraction}",
-                "xrgs": (0., 500),
-                "yrgs": (0., 0.25),
-                "nbin": 50,
-                "legend":   True
-            },
-            "deltaR_ll":{
-                "xlabel":   "\Delta R_{\ell\ell}",
-                "ylabel":   "{\\rm Events~fraction}",
-                "xrgs": (0.4, 5.),
-                "yrgs": (0., 0.15),
-                "nbin": 50,
-                "legend":   False
-            },
-            "mT2_min":{
-                "xlabel":   "m_{\\rm T2}^{\\rm min}~[{\\rm GeV}]",
-                "ylabel":   "{\\rm Events~fraction}",
-                "xrgs": (0., 800),
-                "yrgs": (0., 0.15),
-                "nbin": 50,
-                "legend":   False
-            }
-        } 
-        plot(ds, info)
+    if switch_ZH:
+        with open(os.path.join(pwd, "Data/SRZH.json")) as f1:
+            ds = json.loads(f1.read())
+            info = {
+                "ET_miss":{
+                    "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 500),
+                    "yrgs": (0., 0.3),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "m_ll":{
+                    "xlabel":   "m_{\ell\ell}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 500),
+                    "yrgs": (0., 0.25),
+                    "nbin": 50,
+                    "legend":   True
+                },
+                "deltaR_ll":{
+                    "xlabel":   "\Delta R_{\ell\ell}",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0.4, 5.),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "mT2_min":{
+                    "xlabel":   "m_{\\rm T2}^{\\rm min}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 800),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   False
+                }
+            } 
+            plot(ds, info)
+
+    if switch_ZZ:
+        with open(os.path.join(pwd, "Data/SRZZ.json")) as f1:
+            ds = json.loads(f1.read())
+            info = {
+                "ET_miss":{
+                    "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 300),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   True
+                },
+                "mll1":{
+                    "xlabel":   "m_{\ell\ell}^{\\rm 1st}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 150),
+                    "yrgs": (0., 0.25),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "mll2":{
+                    "xlabel":   "m_{\ell\ell}^{\\rm 2nd}~[\\rm GeV]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0.4, 200),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   False
+                }
+            } 
+            plot(ds, info)
+
+    if switch_WH:
+        with open(os.path.join(pwd, "Data/SRWH.json")) as f1:
+            ds = json.loads(f1.read())
+            info = {
+                "ET_miss":{
+                    "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 400),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   True
+                },
+                "m_bb":{
+                    "xlabel":   "m_{\ell\ell}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 300),
+                    "yrgs": (0., 0.2),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "mCT":{
+                    "xlabel":   "m_{\\rm CT}~{[\\rm GeV]}",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0.4, 400.),
+                    "yrgs": (0., 0.1),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "mT":{
+                    "xlabel":   "m_{\\rm T}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 400),
+                    "yrgs": (0., 0.2),
+                    "nbin": 50,
+                    "legend":   False
+                }
+            } 
+            plot(ds, info)
+
+    if switch_WZ:
+        with open(os.path.join(pwd, "Data/SRWZ.json")) as f1:
+            ds = json.loads(f1.read())
+            info = {
+                "ET_miss":{
+                    "xlabel":   "E_{\\rm T}^{\\rm miss}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 400),
+                    "yrgs": (0., 0.3),
+                    "nbin": 50,
+                    "legend":   True
+                },
+                "m_ll":{
+                    "xlabel":   "m_{\ell\ell}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 200),
+                    "yrgs": (0., 0.25),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "deltaR_ll":{
+                    "xlabel":   "\Delta R_{\ell\ell}",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 5.),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   False
+                },
+                "mT_min":{
+                    "xlabel":   "m_{\\rm T}^{\\rm min}~[{\\rm GeV}]",
+                    "ylabel":   "{\\rm Events~fraction}",
+                    "xrgs": (0., 250),
+                    "yrgs": (0., 0.15),
+                    "nbin": 50,
+                    "legend":   False
+                }
+            } 
+            plot(ds, info)

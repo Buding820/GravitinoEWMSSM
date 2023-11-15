@@ -9,25 +9,27 @@
     },
     "Background": {
         "ttbar": {
-            "Label": "t\bar{t}$",
+            "Label": "$t\\bar{t}$",
             "dfs": [
                 {
                     "df": "bkg_tt.csv",
                     "XSect": 66.31
                 }
-            ]
+            ],
+            "color": "#FFBF00"
         },
         "singleT": {
-            "Label": "${\rm single-}t$",
+            "Label": "${\\rm single-}t$",
             "dfs": [
                 {
                     "df": "bkg_tw.csv",
                     "XSect": 9.28
                 }
-            ]
+            ],
+            "color": "#FF7F50"
         },
         "Zjets": {
-            "Label": "$Z+{\rm jets}$",
+            "Label": "$Z$+${\\rm jets}$",
             "dfs": [
                 {
                     "df": "bkg_zjj.csv",
@@ -37,7 +39,8 @@
                     "df": "bkg_zjjj.csv",
                     "XSect": 224.2
                 }
-            ]
+            ],
+            "color": "#D582F8"
         },
         "WZ": {
             "Label": "$WZ$",
@@ -46,7 +49,8 @@
                     "df": "bkg_zw.csv",
                     "XSect": 0.9379
                 }
-            ]
+            ],
+            "color": "#9FE2BF"
         },
         "ZZ": {
             "Label": "$ZZ$",
@@ -55,7 +59,8 @@
                     "df": "bkg_zz.csv",
                     "XSect": 0.1093
                 }
-            ]
+            ],
+            "color": "#40E0D0"
         }
     }
 }

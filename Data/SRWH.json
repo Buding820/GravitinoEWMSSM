@@ -9,16 +9,17 @@
     },
     "Background": {
         "ttbar": {
-            "Label": "t\bar{t}$",
+            "Label": "t\\bar{t}$",
             "dfs": [
                 {
                     "df": "bkg_tt.csv",
                     "XSect": 598.3
                 }
-            ]
+            ],
+            "color": "#FFBF00"
         },
         "ttX": {
-            "Label": "$t\bar{t}X$",
+            "Label": "$t\\bar{t}X$",
             "dfs":[
                 {
                     "df": "bkg_tth.csv",
@@ -32,25 +33,28 @@
                     "df": "bkg_ttz.csv",
                     "XSect": 0.7072
                 }
-            ]
+            ],
+            "color": "#FF7F50"
         },
         "singleT": {
-            "Label": "${\rm single-}t$",
+            "Label": "${\\rm single-}t$",
             "dfs": [
                 {
                     "df": "bkg_tw.csv",
                     "XSect": 83.6
                 }
-            ]
+            ],
+            "color": "#6495ED"
         },
         "Wbb": {
-            "Label": "$Wb\bar{b}$",
+            "Label": "$Wb\\bar{b}$",
             "dfs": [
                 {
                     "df": "bkg_wbb.csv",
                     "XSect": 131.8
                 }
-            ]
+            ],
+            "color": "#D582F8"
         },
         "Wh":{
             "Label": "$Wh$",
@@ -59,7 +63,8 @@
                     "df": "bkg_wh.csv",
                     "XSect": 0.3289
                 }
-            ]
+            ],
+            "color": "#9FE2BF"
         },
         "WZ": {
             "Label": "$WZ$",
@@ -68,7 +73,8 @@
                     "df": "bkg_zw.csv",
                     "XSect": 1.308
                 }
-            ]
+            ],
+            "color": "#40E0D0"
         }
     }
 }
