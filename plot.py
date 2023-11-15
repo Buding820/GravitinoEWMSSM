@@ -102,7 +102,13 @@ axc = fig.add_axes([0.851, 0.15, 0.02, 0.80])
 df = pd.read_csv("tot_data_1107.csv", index_col="ID")
 data2 = pd.read_csv("param.csv", index_col="index")
 df = df.sort_values(['LogL'])
-
+df['FT01'] = np.abs(df["SUFT01"])
+df['FT02'] = np.abs(df["SUFT02"])
+df['FT03'] = np.abs(df["SUFT03"])
+df['FT04'] = np.abs(df["SUFT04"])
+df['SUSYFT'] = df[['FT01', "FT02", "FT03", "FT04"]].max(axis=1)
+# print(df[['SUFT01', "SUFT02", 'SUFT03', 'SUFT04', 'FT01', "FT02", "FT03", "FT04", "SUSYFT"]])
+print(df['SUSYFT'].min(), df['SUSYFT'].max())
 
 # Higgsino-Dominated N1  
 
@@ -242,32 +248,99 @@ dz5 = dz5.sort_values(['LogL'])
 
 # plt.savefig("m1-mu-HLLHC.png", dpi=150)
 
-# =============== Plot M2-Mu plane ================ # 
+# # =============== Plot M2-Mu plane ================ # 
 
-ax1.scatter(dc2['M2'], dc2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dc3['M2'], dc3['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dc4['M2'], dc4['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dd2['M2'], dd2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dd4['M2'], dd4['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dg2['M2'], dg2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(dg4['M2'], dg4['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(de2['M2'], de2['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(de3['M2'], de3['Mu'] , marker='.', s=1.0, c="lightgray")
-ax1.scatter(de4['M2'], de4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc2['M2'], dc2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc3['M2'], dc3['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc4['M2'], dc4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd2['M2'], dd2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd4['M2'], dd4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg2['M2'], dg2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg4['M2'], dg4['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de2['M2'], de2['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de3['M2'], de3['Mu'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de4['M2'], de4['Mu'] , marker='.', s=1.0, c="lightgray")
 
-sc = ax1.scatter(dz1['M2'], dz1['Mu'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz2['M2'], dz2['Mu'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz3['M2'], dz3['Mu'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz4['M2'], dz4['Mu'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
-ax1.scatter(dz5['M2'], dz5['Mu'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# sc = ax1.scatter(dz1['M2'], dz1['Mu'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz2['M2'], dz2['Mu'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz3['M2'], dz3['Mu'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz4['M2'], dz4['Mu'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz5['M2'], dz5['Mu'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
-# sc = ax1.scatter(df['M2'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# # sc = ax1.scatter(df['M2'], df['Mu'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
 
-ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
-ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
+# ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
+# ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
 
-ax1.set_xlim(0., 1000)
-ax1.set_ylim(-1000., 1000)
+# ax1.set_xlim(0., 1000)
+# ax1.set_ylim(-1000., 1000)
+# ax1.yaxis.set_minor_locator(AutoMinorLocator())
+# ax1.xaxis.set_minor_locator(AutoMinorLocator())
+
+
+# ax1.tick_params(
+#     which='both',
+#     direction="in",
+#     labelsize=18,
+#     left=True,
+#     right=True,
+#     bottom=True,
+#     top=True
+# )
+# ax1.tick_params(which="major", length=10, width=1.2)
+# ax1.tick_params(which="minor", length=4, width=1.2)
+# ax1.set_xticks(np.linspace(0, 1000, 5))
+# ax1.set_yticks(np.linspace(-1000, 1000, 5))
+
+# axc.tick_params(
+#     which='both',
+#     direction="in",
+#     labelsize=18,
+#     left=False,
+#     right=True,
+#     bottom=False,
+#     top=False
+# )
+# axc.tick_params(which="major", length=7, width=1.2)
+# axc.tick_params(which="minor", length=4, width=1.2)
+# ax1.set_xlabel("$M_{2}$ [GeV]", fontsize=30, loc="right")
+# ax1.set_ylabel("$\mu$ [GeV]", fontsize=30, loc="top")
+
+# plt.colorbar(sc, axc)
+# axc.yaxis.set_minor_locator(AutoMinorLocator())
+# axc.set_ylabel(r"$\ln\mathcal{L}^{\rm searches}$", fontsize=30)
+
+# plt.savefig("m2-mu-HLLHC.png", dpi=150)
+# plt.savefig("m2-mu.png", dpi=150)
+
+
+# =============== Plot Mu-FT plane ================ # 
+
+# ax1.scatter(dc2['Mu'], dc2['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc3['Mu'], dc3['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dc4['Mu'], dc4['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd2['Mu'], dd2['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dd4['Mu'], dd4['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg2['Mu'], dg2['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(dg4['Mu'], dg4['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de2['Mu'], de2['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de3['Mu'], de3['FT01'] , marker='.', s=1.0, c="lightgray")
+# ax1.scatter(de4['Mu'], de4['FT01'] , marker='.', s=1.0, c="lightgray")
+
+# sc = ax1.scatter(dz1['Mu'], dz1['FT01'] , marker='.', s=4.0, c=dz1['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz2['Mu'], dz2['FT01'] , marker='.', s=4.0, c=dz2['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz3['Mu'], dz3['FT01'] , marker='.', s=4.0, c=dz3['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz4['Mu'], dz4['FT01'] , marker='.', s=4.0, c=dz4['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+# ax1.scatter(dz5['Mu'], dz5['FT01'] , marker='.', s=4.0, c=dz5['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+
+sc = ax1.scatter(df['Mu'], df['FT03'] , marker='.', s=4.0, c=df['LogL'], cmap="Spectral_r", vmax=3.8, vmin=-3.8)
+
+# ax1.plot([-1000, 1000], [-1000, 1000], ':', linewidth=1.4, c='grey')
+# ax1.plot([-1000, 1000], [1000, -1000], ':', linewidth=1.4, c='grey')
+
+ax1.set_xlim(-1000., 1000)
+ax1.set_ylim(1., 1.e8)
+ax1.set_yscale("log")
 ax1.yaxis.set_minor_locator(AutoMinorLocator())
 ax1.xaxis.set_minor_locator(AutoMinorLocator())
 
@@ -283,8 +356,8 @@ ax1.tick_params(
 )
 ax1.tick_params(which="major", length=10, width=1.2)
 ax1.tick_params(which="minor", length=4, width=1.2)
-ax1.set_xticks(np.linspace(0, 1000, 5))
-ax1.set_yticks(np.linspace(-1000, 1000, 5))
+# ax1.set_xticks(np.linspace(0, 1000, 5))
+ax1.set_xticks(np.linspace(-1000, 1000, 5))
 
 axc.tick_params(
     which='both',
@@ -304,8 +377,9 @@ plt.colorbar(sc, axc)
 axc.yaxis.set_minor_locator(AutoMinorLocator())
 axc.set_ylabel(r"$\ln\mathcal{L}^{\rm searches}$", fontsize=30)
 
-plt.savefig("m2-mu-HLLHC.png", dpi=150)
-# plt.savefig("m2-mu.png", dpi=150)
+# plt.savefig("mu-ft-HLLHC.png", dpi=150)
+plt.show()
+
 
 # =================== Plot mN1-Decay Width ====================
 
