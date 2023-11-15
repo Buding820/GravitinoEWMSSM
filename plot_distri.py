@@ -89,14 +89,14 @@ def plot(cs, info):
         # ax.set_yscale("logit")
         if inf['legend']:
             ax.legend(fontsize=24, ncols=2)
-        plt.savefig("HH_{}.png".format(var), dpi=150)
+        plt.savefig("ZH_{}.png".format(var), dpi=150)
         # plt.show()
         # fig.clf()
 
 
 if __name__ == "__main__":
-    switch_HH = True
-    switch_ZH = False
+    switch_HH = False
+    switch_ZH = True
     switch_ZZ = False
     switch_WH = False
     switch_WZ = False
