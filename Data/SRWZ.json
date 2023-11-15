@@ -19,7 +19,7 @@
             "color": "#FFBF00"
         },
         "singleT": {
-            "Label": "${\\rm single-}t$",
+            "Label": "${\\rm single}$-$t$",
             "dfs": [
                 {
                     "df": "bkg_tw.csv",

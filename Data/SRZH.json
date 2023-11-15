@@ -1,9 +1,9 @@
 {
     "path": {
-        "pwd": "/Users/zhupengxuan/Buding/GEWMSSM/Data/ZH"
+        "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/ZH"
     },
     "Signal": {
-        "Label": "S(600)",
+        "Label": "S(600, 0.5)",
         "df": "zh600.csv",
         "XSect": 0.0003547
     },
@@ -37,7 +37,7 @@
             "color": "#FF7F50"
         },
         "Zjets": {
-            "Label": "$Z+{\\rm jets}$",
+            "Label": "$Z$+${\\rm jets}$",
             "dfs": [
                 {
                     "df": "bkg_zcc.csv",
@@ -71,7 +71,7 @@
             "color": "#40E0D0"
         },
         "singleT": {
-            "Label": "${\\rm single-}t$",
+            "Label": "${\\rm single$-$t$",
             "dfs": [
                 {
                     "df": "bkg_single_t_st.csv",

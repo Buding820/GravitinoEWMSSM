@@ -3,7 +3,7 @@
         "pwd": "/home/buding/Workshop/GAMBIT_GEWMSSM/Data/HH"
     },
     "Signal": {
-        "Label": "S(600)",
+        "Label": "S(600, 0)",
         "df": "TT_hh600.csv",
         "XSect": 0.00139
     },
@@ -33,7 +33,7 @@
             "color": "#FF7F50"
         },
         "Zjets": {
-            "Label": "$Z+{\\rm jets}$",
+            "Label": "$Z$+${\\rm jets}$",
             "dfs": [
                 {
                     "df": "TT_zjj.csv",

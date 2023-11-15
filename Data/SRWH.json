@@ -9,7 +9,7 @@
     },
     "Background": {
         "ttbar": {
-            "Label": "t\\bar{t}$",
+            "Label": "$t\\bar{t}$",
             "dfs": [
                 {
                     "df": "bkg_tt.csv",
@@ -37,7 +37,7 @@
             "color": "#FF7F50"
         },
         "singleT": {
-            "Label": "${\\rm single-}t$",
+            "Label": "${\\rm single}$-$t$",
             "dfs": [
                 {
                     "df": "bkg_tw.csv",

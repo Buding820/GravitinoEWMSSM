@@ -89,17 +89,17 @@ def plot(cs, info):
         # ax.set_yscale("logit")
         if inf['legend']:
             ax.legend(fontsize=24, ncols=2)
-        plt.savefig("WZ_{}.png".format(var), dpi=150)
+        plt.savefig("HH_{}.png".format(var), dpi=150)
         # plt.show()
         # fig.clf()
 
 
 if __name__ == "__main__":
-    switch_HH = False
+    switch_HH = True
     switch_ZH = False
     switch_ZZ = False
     switch_WH = False
-    switch_WZ = True
+    switch_WZ = False
     if switch_HH:
         with open(os.path.join(pwd, "Data/SRHH.json")) as f1:
             ds = json.loads(f1.read())
@@ -110,7 +110,7 @@ if __name__ == "__main__":
                     "xrgs": (0., 500),
                     "yrgs": (0., 0.3),
                     "nbin": 50,
-                    "legond":   False
+                    "legend":   False
                 },
                 "m_bb":{
                     "xlabel":   "m_{bb}~[{\\rm GeV}]",
@@ -118,7 +118,7 @@ if __name__ == "__main__":
                     "xrgs": (0., 500),
                     "yrgs": (0., 0.25),
                     "nbin": 50,
-                    "legond":   True
+                    "legend":   True
                 },
                 "deltaR_bb":{
                     "xlabel":   "\Delta R_{bb}",
@@ -126,7 +126,7 @@ if __name__ == "__main__":
                     "xrgs": (0.4, 5.),
                     "yrgs": (0., 0.15),
                     "nbin": 50,
-                    "legond":   False
+                    "legend":   False
                 },
                 "mT2_min":{
                     "xlabel":   "m_{\\rm T2}^{\\rm min}~[{\\rm GeV}]",
@@ -134,7 +134,7 @@ if __name__ == "__main__":
                     "xrgs": (0., 800),
                     "yrgs": (0., 0.15),
                     "nbin": 50,
-                    "legond":   False
+                    "legend":   False
                 }
             } 
             plot(ds, info)
