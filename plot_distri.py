@@ -56,7 +56,7 @@ def plot(cs, info):
             xx = np.array([bins[:-1], bins[1:]]).ravel(order="F")
             yy = np.array([hist, hist]).ravel(order="F")
 
-            ax.plot(xx, yy, "-", linewidth=1.4, label=r"{}".format(bkg['Label']), c=bkg['color'])
+            ax.plot(xx, yy, "-", linewidth=2.0, label=r"{}".format(bkg['Label']), c=bkg['color'])
 
         print("Background Loaded")
         ds = pd.read_csv(os.path.join(cs['path']['pwd'], cs['Signal']['df']))
@@ -66,29 +66,29 @@ def plot(cs, info):
         xx = np.array([bins[:-1], bins[1:]]).ravel(order="F")
         yy = np.array([hist, hist]).ravel(order="F")
 
-        ax.plot(xx, yy, "-", c='r', linewidth=2.4, label=r"{}".format(cs['Signal']["Label"]))
+        ax.plot(xx, yy, "-", c='r', linewidth=3.0, label=r"{}".format(cs['Signal']["Label"]))
 
         ax.set_xlim(xrgs)
         ax.set_ylim(inf['yrgs'])
-        ax.set_xlabel(r"${}$".format(inf['xlabel']), fontsize=30, loc='right')
-        ax.set_ylabel(r"${}$".format(inf['ylabel']), fontsize=30, loc='top')
+        ax.set_xlabel(r"${}$".format(inf['xlabel']), fontsize=36, loc='right')
+        ax.set_ylabel(r"${}$".format(inf['ylabel']), fontsize=36, loc='top')
         ax.yaxis.set_minor_locator(AutoMinorLocator())
         ax.xaxis.set_minor_locator(AutoMinorLocator())
         ax.tick_params(
             which='both',
             direction="in",
-            labelsize=18,
+            labelsize=24,
             left=True,
             right=True,
             bottom=True,
             top=True
         )
-        ax.tick_params(which="major", length=10, width=1.2)
-        ax.tick_params(which="minor", length=4, width=1.2)
+        ax.tick_params(which="major", length=13, width=1.6)
+        ax.tick_params(which="minor", length=8, width=1.6)
 
         # ax.set_yscale("logit")
         if inf['legend']:
-            ax.legend(fontsize=24, ncols=2)
+            ax.legend(fontsize=30, ncols=2)
         plt.savefig("ZH_{}.png".format(var), dpi=150)
         # plt.show()
         # fig.clf()
@@ -96,8 +96,8 @@ def plot(cs, info):
 
 if __name__ == "__main__":
     switch_HH = False
-    switch_ZH = True
-    switch_ZZ = False
+    switch_ZH = False
+    switch_ZZ = True
     switch_WH = False
     switch_WZ = False
     if switch_HH:
