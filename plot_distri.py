@@ -191,7 +191,7 @@ if __name__ == "__main__":
                     "legend":   True
                 },
                 "mll1":{
-                    "xlabel":   "m_{\ell\ell}^{\\rm 1st}~[{\\rm GeV}]",
+                    "xlabel":   "m_{\\rm OSSF}^{\\rm 1st}~[{\\rm GeV}]",
                     "ylabel":   "{\\rm Events~fraction}",
                     "xrgs": (0., 150),
                     "yrgs": (0., 0.25),
@@ -199,7 +199,7 @@ if __name__ == "__main__":
                     "legend":   False
                 },
                 "mll2":{
-                    "xlabel":   "m_{\ell\ell}^{\\rm 2nd}~[\\rm GeV]",
+                    "xlabel":   "m_{\\rm OSSF}^{\\rm 2nd}~[\\rm GeV]",
                     "ylabel":   "{\\rm Events~fraction}",
                     "xrgs": (0.4, 200),
                     "yrgs": (0., 0.15),
@@ -277,7 +277,7 @@ if __name__ == "__main__":
                     "legend":   False
                 },
                 "mT_min":{
-                    "xlabel":   "m_{\\rm T}^{\\rm min}~[{\\rm GeV}]",
+                    "xlabel":   "m_{\\rm T}^{\\rm 3rd-\ell}~[{\\rm GeV}]",
                     "ylabel":   "{\\rm Events~fraction}",
                     "xrgs": (0., 250),
                     "yrgs": (0., 0.15),
